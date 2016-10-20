@@ -2,6 +2,11 @@
   <li ng-repeat="item in $ctrl.items">
      <p style="font-weight: bold" > {{ item.name }}</p>  
      <p style="color:blue"> {{item.description}} </p>
-     <p>price: {{item.price_small | currency}}(small), {{item.price_large | currency}}(large) </p>       
+     <div ng-show="item.price_small != null">
+        <p>price: {{item.price_small | currency}}(small), {{item.price_large | currency}}(large) </p>  
+     </div>         
+      <div ng-show="item.price_small === null">
+        <p>price: {{item.price_large | currency}}</p>  
+     </div>
   </li>
 </ol>
